@@ -1,0 +1,51 @@
+Notebook: Users/<you>/project-accidents/01_clean (compute dsai3202-lab5-60312217, 18 LTS, 2 workers)
+Widgets: lake=amazonlake60312217  catalog=dsai3202_databricks  schema=s_60312217  run_id=(empty -> 927bdb79-6837-4472-a73f-2612af4be7eb)
+
+2.2  rows_in = 7728394
+     accident_year counts: 2016 410821 | 2017 718093 | 2018 893426 | 2019 954303 |
+                           2020 1178913 | 2021 1563753 | 2022 1762452 | 2023 246633
+
+3.2  null_key     : dropped 0; remaining 7,728,394
+     bad_severity : dropped 0; remaining 7,728,394
+     bad_time     : dropped 0; remaining 7,728,394
+     bad_year     : dropped 0; remaining 7,728,394
+     bad_location : dropped 0; remaining 7,728,394
+     duplicate    : dropped 0; remaining 7,728,394
+     BALANCED: 7,728,394 = 7,728,394 kept + 0 invalid + 0 duplicates
+     Dropped: 0.000%
+
+4.1  saved rejects folder read back: 0 rows
+
+5.1  First published version: 1   (silver year counts equal the 2.2 counts)
+5.2  SAME CONTENT: versions 1 and 2; 7,728,394 rows
+
+7.1  drop_report.json:
+{
+  "project": "us-accidents",
+  "step": "clean",
+  "run_id": "927bdb79-6837-4472-a73f-2612af4be7eb",
+  "completed_utc": "2026-11-14T21:33:04.831165+00:00",
+  "source": "abfss://processed@amazonlake60312217.dfs.core.windows.net/accidents/",
+  "table": "dsai3202_databricks.s_60312217.silver_accidents",
+  "silver_path": "abfss://processed@amazonlake60312217.dfs.core.windows.net/silver_accidents",
+  "silver_version": 2,
+  "rejects_path": "abfss://processed@amazonlake60312217.dfs.core.windows.net/silver_accidents_rejects/run_id=927bdb79-6837-4472-a73f-2612af4be7eb",
+  "rows_in": 7728394,
+  "rows_out": 7728394,
+  "invalid_rows": 0,
+  "duplicate_rows": 0,
+  "dropped": 0,
+  "dropped_pct": 0.0,
+  "dropped_by_step": {
+    "null_key": 0,
+    "bad_severity": 0,
+    "bad_time": 0,
+    "bad_year": 0,
+    "bad_location": 0,
+    "duplicate": 0
+  },
+  "harshest_filter": "none",
+  "rerun_same_content": true
+}
+
+Compute terminated after the run.

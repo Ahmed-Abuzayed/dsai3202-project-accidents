@@ -1,0 +1,846 @@
+{
+	"runStatus": {
+		"idleTimeBeforeCurrentJob": 0,
+		"sparkVersion": "3.5",
+		"computeAcquisitionDuration": 217707,
+		"version": "20261027.3",
+		"profile": {
+			"renameColumns": {
+				"computed": [],
+				"lineage": {},
+				"dropped": 8,
+				"drifted": 46,
+				"newer": 8,
+				"total": 48,
+				"updated": 40
+			},
+			"deriveFolder": {
+				"computed": [],
+				"lineage": {},
+				"dropped": 0,
+				"drifted": 46,
+				"newer": 1,
+				"total": 48,
+				"updated": 0
+			},
+			"sinkAccidents": {
+				"computed": [],
+				"lineage": {
+					"End_Lat": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"End_Lat"
+								]
+							}
+						]
+					},
+					"ID": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"ID"
+								]
+							}
+						]
+					},
+					"accident_year": {
+						"mapped": false,
+						"from": [
+							{
+								"source": "deriveYear",
+								"columns": [
+									"accident_year"
+								]
+							}
+						]
+					},
+					"Wind_Chill_F": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Wind_Chill(F)"
+								]
+							}
+						]
+					},
+					"Traffic_Signal": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Traffic_Signal"
+								]
+							}
+						]
+					},
+					"Timezone": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Timezone"
+								]
+							}
+						]
+					},
+					"Airport_Code": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Airport_Code"
+								]
+							}
+						]
+					},
+					"Bump": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Bump"
+								]
+							}
+						]
+					},
+					"output_folder": {
+						"mapped": false,
+						"from": [
+							{
+								"source": "deriveYear",
+								"columns": [
+									"accident_year"
+								]
+							}
+						]
+					},
+					"Country": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Country"
+								]
+							}
+						]
+					},
+					"End_Lng": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"End_Lng"
+								]
+							}
+						]
+					},
+					"Sunrise_Sunset": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Sunrise_Sunset"
+								]
+							}
+						]
+					},
+					"Visibility_mi": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Visibility(mi)"
+								]
+							}
+						]
+					},
+					"Junction": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Junction"
+								]
+							}
+						]
+					},
+					"Wind_Speed_mph": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Wind_Speed(mph)"
+								]
+							}
+						]
+					},
+					"Description": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Description"
+								]
+							}
+						]
+					},
+					"Wind_Direction": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Wind_Direction"
+								]
+							}
+						]
+					},
+					"Give_Way": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Give_Way"
+								]
+							}
+						]
+					},
+					"Amenity": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Amenity"
+								]
+							}
+						]
+					},
+					"Weather_Timestamp": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Weather_Timestamp"
+								]
+							}
+						]
+					},
+					"Start_Lat": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Start_Lat"
+								]
+							}
+						]
+					},
+					"Start_Time": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Start_Time"
+								]
+							}
+						]
+					},
+					"Astronomical_Twilight": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Astronomical_Twilight"
+								]
+							}
+						]
+					},
+					"Traffic_Calming": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Traffic_Calming"
+								]
+							}
+						]
+					},
+					"Zipcode": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Zipcode"
+								]
+							}
+						]
+					},
+					"County": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"County"
+								]
+							}
+						]
+					},
+					"Distance_mi": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Distance(mi)"
+								]
+							}
+						]
+					},
+					"Start_Lng": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Start_Lng"
+								]
+							}
+						]
+					},
+					"Temperature_F": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Temperature(F)"
+								]
+							}
+						]
+					},
+					"Humidity_pct": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Humidity(%)"
+								]
+							}
+						]
+					},
+					"Street": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Street"
+								]
+							}
+						]
+					},
+					"Source": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Source"
+								]
+							}
+						]
+					},
+					"Precipitation_in": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Precipitation(in)"
+								]
+							}
+						]
+					},
+					"City": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"City"
+								]
+							}
+						]
+					},
+					"Railway": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Railway"
+								]
+							}
+						]
+					},
+					"No_Exit": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"No_Exit"
+								]
+							}
+						]
+					},
+					"Nautical_Twilight": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Nautical_Twilight"
+								]
+							}
+						]
+					},
+					"End_Time": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"End_Time"
+								]
+							}
+						]
+					},
+					"Pressure_in": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Pressure(in)"
+								]
+							}
+						]
+					},
+					"Weather_Condition": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Weather_Condition"
+								]
+							}
+						]
+					},
+					"Roundabout": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Roundabout"
+								]
+							}
+						]
+					},
+					"State": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"State"
+								]
+							}
+						]
+					},
+					"Station": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Station"
+								]
+							}
+						]
+					},
+					"Stop": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Stop"
+								]
+							}
+						]
+					},
+					"Turning_Loop": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Turning_Loop"
+								]
+							}
+						]
+					},
+					"Crossing": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Crossing"
+								]
+							}
+						]
+					},
+					"Civil_Twilight": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Civil_Twilight"
+								]
+							}
+						]
+					},
+					"Severity": {
+						"mapped": true,
+						"from": [
+							{
+								"source": "sourceAccidents",
+								"columns": [
+									"Severity"
+								]
+							}
+						]
+					}
+				},
+				"dropped": 0,
+				"drifted": 46,
+				"newer": 0,
+				"total": 48,
+				"updated": 48
+			},
+			"deriveYear": {
+				"computed": [],
+				"lineage": {},
+				"dropped": 0,
+				"drifted": 46,
+				"newer": 1,
+				"total": 47,
+				"updated": 0
+			},
+			"sourceAccidents": {
+				"computed": [],
+				"lineage": {},
+				"dropped": 0,
+				"drifted": 46,
+				"newer": 46,
+				"total": 46,
+				"updated": 0
+			}
+		},
+		"metrics": {
+			"sinkAccidents": {
+				"format": "parquet",
+				"stages": [
+					{
+						"stage": 1,
+						"partitionTimes": [
+							19678,
+							19709,
+							19335,
+							19813,
+							14136,
+							13146,
+							13390,
+							13046,
+							12489,
+							12384,
+							13752,
+							12530,
+							11538,
+							11698,
+							11499,
+							11759,
+							10500,
+							10415,
+							10448,
+							11343,
+							9448,
+							10048,
+							9052
+						],
+						"recordsWritten": 7728394,
+						"lastUpdateTime": "2026-11-14 20:42:39.814",
+						"bytesWritten": 792160999,
+						"recordsRead": 7728394,
+						"bytesRead": 3059625519,
+						"partitionStatus": "Success",
+						"streams": {
+							"renameColumns": {
+								"count": 7728394,
+								"cached": false,
+								"totalPartitions": 23,
+								"partitionStatus": "Success",
+								"partitionCounts": [
+									359735,
+									356639,
+									353514,
+									354339,
+									355055,
+									356348,
+									359559,
+									362280,
+									360791,
+									364376,
+									322048,
+									314166,
+									314019,
+									314075,
+									313239,
+									313002,
+									312745,
+									312592,
+									317092,
+									324146,
+									343834,
+									363716,
+									281084
+								],
+								"type": "select"
+							},
+							"deriveFolder": {
+								"count": 7728394,
+								"cached": false,
+								"totalPartitions": 23,
+								"partitionStatus": "Success",
+								"partitionCounts": [
+									359735,
+									356639,
+									353514,
+									354339,
+									355055,
+									356348,
+									359559,
+									362280,
+									360791,
+									364376,
+									322048,
+									314166,
+									314019,
+									314075,
+									313239,
+									313002,
+									312745,
+									312592,
+									317092,
+									324146,
+									343834,
+									363716,
+									281084
+								],
+								"type": "derive"
+							},
+							"sinkAccidents": {
+								"count": 7728394,
+								"cached": false,
+								"totalPartitions": 23,
+								"partitionStatus": "Success",
+								"partitionCounts": [
+									359735,
+									356639,
+									353514,
+									354339,
+									355055,
+									356348,
+									359559,
+									362280,
+									360791,
+									364376,
+									322048,
+									314166,
+									314019,
+									314075,
+									313239,
+									313002,
+									312745,
+									312592,
+									317092,
+									324146,
+									343834,
+									363716,
+									281084
+								],
+								"type": "sink"
+							},
+							"deriveYear": {
+								"count": 7728394,
+								"cached": false,
+								"totalPartitions": 23,
+								"partitionStatus": "Success",
+								"partitionCounts": [
+									359735,
+									356639,
+									353514,
+									354339,
+									355055,
+									356348,
+									359559,
+									362280,
+									360791,
+									364376,
+									322048,
+									314166,
+									314019,
+									314075,
+									313239,
+									313002,
+									312745,
+									312592,
+									317092,
+									324146,
+									343834,
+									363716,
+									281084
+								],
+								"type": "derive"
+							},
+							"sourceAccidents": {
+								"count": 7728394,
+								"cached": false,
+								"totalPartitions": 23,
+								"partitionStatus": "Success",
+								"partitionCounts": [
+									359735,
+									356639,
+									353514,
+									354339,
+									355055,
+									356348,
+									359559,
+									362280,
+									360791,
+									364376,
+									322048,
+									314166,
+									314019,
+									314075,
+									313239,
+									313002,
+									312745,
+									312592,
+									317092,
+									324146,
+									343834,
+									363716,
+									281084
+								],
+								"type": "source"
+							}
+						},
+						"target": "sinkAccidents",
+						"time": 78492,
+						"progressState": "Completed"
+					}
+				],
+				"sinkPostProcessingTime": 0,
+				"store": "adlsgen2",
+				"rowsWritten": 7728394,
+				"details": {
+					"preCommandsDuration": [
+						28
+					],
+					"mergeDuration": [
+						2685
+					],
+					"postCommandsDuration": [
+						0
+					]
+				},
+				"progressState": "Completed",
+				"sources": {
+					"sourceAccidents": {
+						"rowsRead": 7728394,
+						"store": "adlsgen2",
+						"details": {
+							"pathResolutionDuration": [
+								459
+							],
+							"fileReadCount": [
+								1
+							],
+							"fileLoadDuration": [
+								15197
+							],
+							"fileSystemInitDuration": [
+								15692
+							]
+						},
+						"format": "delimited"
+					}
+				},
+				"sinkProcessingTime": 88544
+			}
+		},
+		"clusterComputeId": "0ba6f2e6-89bd-411f-81f0-d78fe02056c4",
+		"dsl": "\nsource() ~> sourceAccidents\n\nsourceAccidents derive() ~> deriveYear\n\nderiveYear derive() ~> deriveFolder\n\nderiveFolder select() ~> renameColumns\n\nrenameColumns sink() ~> sinkAccidents",
+		"integrationRuntimeName": "General-8-1-1481086e-f0cd-460b-8bbe-67211c6cdcc0",
+		"sparkRunId": "1"
+	},
+	"effectiveIntegrationRuntime": "AutoResolveIntegrationRuntime (Qatar Central)",
+	"billingReference": {
+		"activityType": "executedataflow",
+		"billableDuration": [
+			{
+				"meterType": "General",
+				"duration": 0.7214103624444445,
+				"unit": "coreHour",
+				"sessionType": "JobCluster"
+			}
+		]
+	},
+	"reportLineageToPurview": {
+		"status": "NotReported"
+	}
+}

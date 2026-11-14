@@ -1,0 +1,61 @@
+{
+    "name": "df_accidents_partitioned",
+    "properties": {
+        "type": "MappingDataFlow",
+        "typeProperties": {
+            "sources": [
+                {
+                    "dataset": {
+                        "referenceName": "ds_accidents_csv",
+                        "type": "DatasetReference"
+                    },
+                    "name": "sourceAccidents"
+                }
+            ],
+            "sinks": [
+                {
+                    "dataset": {
+                        "referenceName": "ds_accidents_partitioned",
+                        "type": "DatasetReference"
+                    },
+                    "name": "sinkAccidents"
+                }
+            ],
+            "transformations": [
+                {
+                    "name": "deriveYear"
+                },
+                {
+                    "name": "deriveFolder"
+                },
+                {
+                    "name": "renameColumns"
+                }
+            ],
+            "scriptLines": [
+                "source(allowSchemaDrift: true,",
+                "     validateSchema: false,",
+                "     ignoreNoFilesFound: false) ~> sourceAccidents",
+                "sourceAccidents derive(accident_year = toInteger(left(toString(byName('Start_Time')), 4))) ~> deriveYear",
+                "deriveYear derive(output_folder = concat('accidents/accident_year=', toString(accident_year))) ~> deriveFolder",
+                "deriveFolder select(mapColumn(",
+                "          accident_year,",
+                "          output_folder,",
+                "          each(match(true()),",
+                "               replace(replace(replace($$, '(', '_'), ')', ''), '%', 'pct') = $$)",
+                "     ),",
+                "     skipDuplicateMapInputs: true,",
+                "     skipDuplicateMapOutputs: true) ~> renameColumns",
+                "renameColumns sink(allowSchemaDrift: true,",
+                "     validateSchema: false,",
+                "     format: 'parquet',",
+                "     rowFolderUrlColumn:'output_folder',",
+                "     umask: 0022,",
+                "     preCommands: [],",
+                "     postCommands: [],",
+                "     skipDuplicateMapInputs: true,",
+                "     skipDuplicateMapOutputs: true) ~> sinkAccidents"
+            ]
+        }
+    }
+}

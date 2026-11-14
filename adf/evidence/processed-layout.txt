@@ -1,0 +1,12 @@
+# processed container after pipeline run 0282f9e1-50f4-446e-8ac7-487e85caeff3 (2026-11-14)
+# az storage fs file list --file-system processed --path accidents --recursive false
+accidents/accident_year=2016
+accidents/accident_year=2017
+accidents/accident_year=2018
+accidents/accident_year=2019
+accidents/accident_year=2020
+accidents/accident_year=2021
+accidents/accident_year=2022
+accidents/accident_year=2023
+# az storage blob list --prefix accidents/ (objects incl. folder entries, total bytes)
+83 files, 792160999 bytes

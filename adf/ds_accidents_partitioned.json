@@ -1,0 +1,19 @@
+{
+    "name": "ds_accidents_partitioned",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "ls_lake",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Parquet",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileSystem": "processed"
+            },
+            "compressionCodec": "snappy"
+        },
+        "schema": []
+    }
+}

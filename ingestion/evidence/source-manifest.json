@@ -1,0 +1,19 @@
+{
+  "dataset": "US-Accidents: A Countrywide Traffic Accident Dataset (2016-2023), Sobhan Moosavi et al.",
+  "source_url": "https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents",
+  "license": "CC BY-NC-SA 4.0",
+  "received_utc": "2026-11-14T19:30:30.236302+00:00",
+  "raw_version": "v1",
+  "files": [
+    {
+      "name": "US_Accidents_March23.csv",
+      "bytes": 3058183727,
+      "sha256": "e3e9f962e3e2289db1bdce91623abbcf9ba4d7bfc1adb091c8aeee6c2639d204"
+    },
+    {
+      "name": "archive.zip",
+      "bytes": 684855912,
+      "sha256": "849be2b58b796fe4fa3b8857446b967fe96aacb9e7f0d6b709ee18cc9693b3c4"
+    }
+  ]
+}
