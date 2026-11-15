@@ -1,0 +1,47 @@
+Job: dsai3202-accidents-60312217 (job ID 73189311802189), tasks clean -> prepare -> validate -> publish
+Compute: dsai3202-lab5-60312217 (existing cluster, 2 workers), retries 0, max concurrent runs 1, no schedule
+
+RUN 1  success   job run ID 1100058089459956   (compare_to empty, test_bad_severity false)
+  task times: clean 12m 28s (includes cluster start), prepare 42s, validate 33s, publish 1m 40s
+  input: silver_accidents version 4, 7,728,394 rows
+  profile (all rows, no sample):
+    Start_Time from 2016-01-14 20:18:33 to 2023-03-31 23:30:00
+    Severity 1:    67,366 (0.9%)
+    Severity 2: 6,156,981 (79.7%)
+    Severity 3: 1,299,337 (16.8%)
+    Severity 4:   204,710 (2.6%)
+    Visibility_mi: median 10.0, q95 10.0, max 140.0
+    severity-visibility correlation: -0.0035
+    missing values: Weather_Timestamp 120,228 | Temperature_F 163,853 | Humidity_pct 174,144 |
+      Pressure_in 140,679 | Visibility_mi 177,098 | Wind_Speed_mph 571,233 | Precipitation_in 2,203,586 |
+      Street 10,869 | City 253 | Zipcode 1,915 | Timezone 7,808 | Weather_Condition 173,459 | Sunrise_Sunset 23,246
+  gate: PASSED - schema, volume (7,728,394 = 7,728,394), keys 0, severity 0, time_and_year 0, location 0,
+        unique_accident 0 duplicates, end_after_start 0 quarantined (tolerance 0.5%),
+        missing_weather WARN 173,459 rows (warn only)
+  publish: BALANCED 7,728,394 silver = 7,728,394 gold + 0 quarantined
+           gold_accidents version 0, features 7,728,394 rows x 19 columns
+           severe label share (Severity 3-4) = 0.1946
+           gold rows missing weather 173,459, missing visibility 177,098
+           lowest retention: 100% for every severity and every year
+  outputs: curated/accidents_runs/1100058089459956/gold (Delta), .../features (Parquet),
+           current: table dsai3202_databricks.s_60312217.gold_accidents, curated/accidents_features_v1
+  pipeline_elapsed_seconds (prepare start -> publish end): 148.9
+
+RUN 2  safe rerun   job run ID 317881341956481   (compare_to = 1100058089459956)
+  task times: clean 3m 27s, prepare 39s, validate 28s, publish 2m 10s - all Succeeded
+  SAME CONTENT: run 317881341956481 matches run 1100058089459956
+    gold rows: 7,728,394 vs 7,728,394
+    features rows: 7,728,394 vs 7,728,394
+    silver version used: 4 vs 4
+  gold_accidents now version 1 (same rows)
+
+RUN 3  controlled failure   job run ID 1000630630652706   (test_bad_severity = true, compare_to = 1100058089459956)
+  clean Succeeded 3m 30s, prepare Succeeded 40s (one Severity changed to 9 in this run's copy only),
+  validate FAILED 31s, publish "Upstream failed" (did not run)
+  05_inspect 6.1: Failed rules: ['severity']
+  BLOCKED SAFELY: run 1000630630652706 published nothing; latest run is still 317881341956481,
+                  gold_accidents is still version 1.
+  How it was started: the job defaults were set to test_bad_severity=true and compare_to=1100058089459956,
+  Run now was clicked, and the defaults were set back right after (checked: test_bad_severity = false, compare_to empty).
+
+Compute terminated after the runs.

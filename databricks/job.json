@@ -1,0 +1,63 @@
+{
+  "name": "dsai3202-accidents-60312217",
+  "description": "Project Phase 1: clean, prepare, validate, then publish only after a passing gate. Adapted from Lab-6 job.json.",
+  "max_concurrent_runs": 1,
+  "timeout_seconds": 7200,
+  "tags": {
+    "course": "dsai3202",
+    "project": "us-accidents"
+  },
+  "parameters": [
+    {"name": "lake", "default": "amazonlake60312217"},
+    {"name": "catalog", "default": "dsai3202_databricks"},
+    {"name": "schema", "default": "s_60312217"},
+    {"name": "run_id", "default": "{{job.run_id}}"},
+    {"name": "test_bad_severity", "default": "false"},
+    {"name": "compare_to", "default": ""}
+  ],
+  "tasks": [
+    {
+      "task_key": "clean",
+      "existing_cluster_id": "YOUR_EXISTING_CLUSTER_ID",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/YOUR_EMAIL/project-accidents/01_clean",
+        "source": "WORKSPACE"
+      },
+      "max_retries": 0,
+      "run_if": "ALL_SUCCESS"
+    },
+    {
+      "task_key": "prepare",
+      "existing_cluster_id": "YOUR_EXISTING_CLUSTER_ID",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/YOUR_EMAIL/project-accidents/02_prepare",
+        "source": "WORKSPACE"
+      },
+      "max_retries": 0,
+      "run_if": "ALL_SUCCESS",
+      "depends_on": [{"task_key": "clean"}]
+    },
+    {
+      "task_key": "validate",
+      "existing_cluster_id": "YOUR_EXISTING_CLUSTER_ID",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/YOUR_EMAIL/project-accidents/03_validate",
+        "source": "WORKSPACE"
+      },
+      "max_retries": 0,
+      "run_if": "ALL_SUCCESS",
+      "depends_on": [{"task_key": "prepare"}]
+    },
+    {
+      "task_key": "publish",
+      "existing_cluster_id": "YOUR_EXISTING_CLUSTER_ID",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/YOUR_EMAIL/project-accidents/04_publish",
+        "source": "WORKSPACE"
+      },
+      "max_retries": 0,
+      "run_if": "ALL_SUCCESS",
+      "depends_on": [{"task_key": "validate"}]
+    }
+  ]
+}
