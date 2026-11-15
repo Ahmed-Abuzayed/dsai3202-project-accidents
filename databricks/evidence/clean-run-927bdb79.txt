@@ -1,4 +1,4 @@
-Notebook: Users/<you>/project-accidents/01_clean (compute dsai3202-lab5-60312217, 18 LTS, 2 workers)
+Notebook: project-accidents/01_clean
 Widgets: lake=amazonlake60312217  catalog=dsai3202_databricks  schema=s_60312217  run_id=(empty -> 927bdb79-6837-4472-a73f-2612af4be7eb)
 
 2.2  rows_in = 7728394
