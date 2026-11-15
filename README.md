@@ -68,7 +68,7 @@ flowchart LR
 
 # Run the pipeline
 
-1. **Versions.** Submitted commit: the latest commit on `main` (its hash is shown on GitHub). Databricks Runtime 18 LTS (Spark 4.1, Python), cluster policy `dsai3202-lab5` (2 × Standard_D4s_v3 workers, auto-terminate 60 min). ADF data flow runtime: Spark 3.5, AutoResolve IR, Small compute. VM: Ubuntu with `az` CLI, `azcopy` and `python3`.
+1. **Versions.** Submitted commit: the latest commit on `main` (its hash is shown on GitHub). Databricks Runtime 18 LTS (Spark 4.1, Python), cluster policy `dsai3202-lab5` (2 × Standard_D4s_v3 workers, auto-terminate 60 min). ADF data flow runtime: Spark 3.5, AutoResolve IR, Small compute. VM: Ubuntu with `az` CLI, `azcopy` and `python3`. Full list: [environment.md](environment.md).
 2. **Azure resources and permissions.** Storage account `amazonlake60312217` (containers `raw`, `processed`, `curated`), the Lab-4 Data Factory with its managed identity granted *Storage Blob Data Contributor* on the lake, and the Databricks workspace `dsai3202-databricks` with the course catalog `dsai3202_databricks` and schema `s_60312217`. No keys or passwords are stored in this repository: the VM uses `az login` (`AZCOPY_AUTO_LOGIN_TYPE=AZCLI`), ADF uses its managed identity, and Databricks uses Unity Catalog access to the lake.
 3. **Ingestion (VM).** Download `archive.zip` from Kaggle, copy it to the VM (`scp -i <key> archive.zip azureuser@<vm-ip>:~/project/ingest/`), then on the VM:
    ```bash
@@ -77,7 +77,7 @@ flowchart LR
    ```
 4. **Bronze (ADF).** Import the four JSON files in [adf/](adf/) (datasets `ds_accidents_csv`, `ds_accidents_partitioned`, data flow `df_accidents_partitioned`, pipeline `pl_transform_accidents`) and run the pipeline once with *Trigger now*. Check 7,728,394 rows read and written in the run output.
 5. **Databricks code.** Import the notebooks in [databricks/](databricks/) into one workspace folder: `00_common`, `01_clean`, `02_prepare`, `03_validate`, `04_publish`, `05_inspect`, `06_eda`.
-6. **Job.** Create the job from [databricks/job.json](databricks/job.json) (replace `YOUR_EXISTING_CLUSTER_ID` and `YOUR_EMAIL`), or use *Edit as YAML* in Jobs & Pipelines. Parameters:
+6. **Job.** The exact exported job is [databricks/job-export.yml](databricks/job-export.yml) (paste it in Jobs & Pipelines > *Edit as YAML*). [databricks/job.json](databricks/job.json) is the same job as a template (replace `YOUR_EXISTING_CLUSTER_ID` and `YOUR_EMAIL`). Parameters:
 
    | Parameter | Normal value | Meaning |
    | --- | --- | --- |

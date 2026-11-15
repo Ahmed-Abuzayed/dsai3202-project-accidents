@@ -1,0 +1,54 @@
+# Exported job definition (Jobs & Pipelines > dsai3202-accidents-60312217 > Edit as YAML)
+# Job ID 73189311802189. Parameters show the normal defaults (test_bad_severity false, compare_to empty).
+resources:
+  jobs:
+    dsai3202_accidents_60312217:
+      name: dsai3202-accidents-60312217
+      description: "Project Phase 1: clean, prepare, validate, then publish only after
+        a passing gate. Adapted from Lab-6."
+      timeout_seconds: 7200
+      tasks:
+        - task_key: clean
+          notebook_task:
+            notebook_path: /Workspace/Users/60312217@udst.edu.qa/project-accidents/01_clean
+            source: WORKSPACE
+          existing_cluster_id: 1114-211401-e680mev4
+        - task_key: prepare
+          depends_on:
+            - task_key: clean
+          notebook_task:
+            notebook_path: /Workspace/Users/60312217@udst.edu.qa/project-accidents/02_prepare
+            source: WORKSPACE
+          existing_cluster_id: 1114-211401-e680mev4
+        - task_key: validate
+          depends_on:
+            - task_key: prepare
+          notebook_task:
+            notebook_path: /Workspace/Users/60312217@udst.edu.qa/project-accidents/03_validate
+            source: WORKSPACE
+          existing_cluster_id: 1114-211401-e680mev4
+        - task_key: publish
+          depends_on:
+            - task_key: validate
+          notebook_task:
+            notebook_path: /Workspace/Users/60312217@udst.edu.qa/project-accidents/04_publish
+            source: WORKSPACE
+          existing_cluster_id: 1114-211401-e680mev4
+      tags:
+        course: dsai3202
+        project: us-accidents
+      queue:
+        enabled: true
+      parameters:
+        - name: lake
+          default: amazonlake60312217
+        - name: catalog
+          default: dsai3202_databricks
+        - name: schema
+          default: s_60312217
+        - name: run_id
+          default: "{{job.run_id}}"
+        - name: test_bad_severity
+          default: "false"
+        - name: compare_to
+          default: ""
