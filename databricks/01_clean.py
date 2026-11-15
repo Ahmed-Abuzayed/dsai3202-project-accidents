@@ -41,7 +41,7 @@ SRC = f"{ROOT}/accidents/"
 SILVER = f"{ROOT}/silver_accidents"
 QUALITY = f"abfss://curated@{LAKE}.dfs.core.windows.net/quality/accidents"
 REJECTS = f"{ROOT}/silver_accidents_rejects/run_id={RUN_ID}"
-EXPECTED_INPUT_ROWS = 7_728_394          # rows written by ADF run 0282f9e1 (source manifest file)
+EXPECTED_INPUT_ROWS = 7_728_394          # rows written by ADF run 0282f9e1 (ADF run output)
 KEY = ["ID"]
 FIRST_TS, END_TS = "2016-01-01 00:00:00", "2023-04-01 00:00:00"   # dataset coverage (Feb 2016 – Mar 2023)
 LAT_MIN, LAT_MAX, LNG_MIN, LNG_MAX = 24.0, 50.0, -125.0, -66.0      # contiguous United States
