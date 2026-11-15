@@ -15,7 +15,7 @@ DSAI3202 Cloud Computing, Fall 2026 · Ahmed Abuzayed (60312217) · individual p
 | --- | --- | --- |
 | Dataset | BTS flights (delay) → US-Accidents (severity) | BTS was taken by other students; instructor approved the new dataset by email |
 | Bronze | Copy activity + data flow → one Mapping Data Flow | Same result in one activity |
-| Job | prepare → validate → publish → **clean** added first | Whole chain runs in one job, in order |
+| Job | prepare → validate → publish became **clean** → prepare → validate → publish | Whole chain runs in one job, in order |
 | Features | Azure ML feature store → versioned Parquet snapshots + `FEATURES.md` | Feature store is optional in the brief |
 
 # Dataset and architecture
@@ -53,9 +53,9 @@ flowchart LR
 
 # Run the pipeline
 
-1. **Versions:** latest commit on `main`. Databricks Runtime 18 LTS, ADF data flow Spark 3.5, VM tools `az`, `azcopy`, `python3`. Details: [environment.md](environment.md).
+1. **Versions:** submitted version is tag `phase1-submission`. Databricks Runtime 18 LTS, ADF data flow Spark 3.5, VM tools `az`, `azcopy`, `python3`. Details: [environment.md](environment.md).
 2. **Resources and access:** storage `amazonlake60312217` (raw, processed, curated), Lab-4 Data Factory (managed identity, Storage Blob Data Contributor), Databricks `dsai3202-databricks` with catalog `dsai3202_databricks`, schema `s_60312217`. No keys in Git: `az login`, managed identity and Unity Catalog are used.
-3. **Ingestion:** copy `archive.zip` to the VM, then `bash ingestion/ingest.sh` (manifest → upload → read-back → repeat upload → receipt diff).
+3. **Ingestion:** copy `archive.zip` and `ingestion/ingest.sh` to `~/project/ingest/` on the VM, then run `bash ingest.sh` in that folder (manifest → upload → read-back → repeat upload → receipt diff).
 4. **Bronze:** import [adf/](adf/) and run `pl_transform_accidents` once (*Trigger now*).
 5. **Job:** import the notebooks in [databricks/](databricks/), then create the job from [job-export.yml](databricks/job-export.yml) (*Edit as YAML*) or [job.json](databricks/job.json). Parameters: `lake`, `catalog`, `schema`, `run_id = {{job.run_id}}`, `test_bad_severity` (default `false`), `compare_to` (default empty).
 6. **Run 1:** *Run now*. **Run 2 (same input):** `compare_to = <run 1 ID>`; publish compares gold and features with run 1 in both directions.
@@ -87,7 +87,9 @@ The large data stays in Azure; the instructor can be given read access to the st
   - **Correlation with label:** strongest is the county's earlier severe rate (+0.39); crossing −0.11; weather below 0.05.
   - **Group losses:** retention is 100% for every severity and year.
 
-  ![Severe share by year](eda/severe_share_by_year.png) ![Provider mix by year](eda/source_mix_by_year.png)
+    ![Severe share by year](eda/severe_share_by_year.png) ![Provider mix by year](eda/source_mix_by_year.png)
+
+  (These two plots are drawn from the values in `eda/eda-output.txt`; the notebook's own plots are in the `06_eda` export.)
 
 - **Modeling readiness:** the label shift and provider mix mean results will be reported overall and per provider (also inside Source1 only). The threshold, the outlier caps and any imputation will be learned on training years only. The hypothesis and split stay as approved.
 
