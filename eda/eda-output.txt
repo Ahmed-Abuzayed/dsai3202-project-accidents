@@ -1,0 +1,78 @@
+06_eda output (notebook databricks/06_eda.py), published run 317881341956481, gold_accidents version 1
+Population: 7,728,394 accidents. No sample: all values are Spark aggregations over every row.
+Saved in Azure: curated/quality/accidents/eda.json and curated/quality/accidents/eda/317881341956481.json
+
+Target
+  Severity 1:    67,366 (0.9%)
+  Severity 2: 6,156,981 (79.7%)
+  Severity 3: 1,299,337 (16.8%)
+  Severity 4:   204,710 (2.6%)
+  Severe (3-4) share 19.46%; "always not severe" accuracy 80.54% with recall 0
+
+Severe share by year
+  year   rows       severe_share
+  2016     410,821  0.342
+  2017     718,093  0.356
+  2018     893,426  0.356
+  2019     954,303  0.279
+  2020   1,178,913  0.184
+  2021   1,563,753  0.114
+  2022   1,762,452  0.069
+  2023     246,633  0.029
+  train (< 2022): 5,719,309 rows, severe share 0.2405
+  test (>= 2022): 2,009,085 rows, severe share 0.0639
+
+Source (data provider)
+  Source1 4,325,632 rows, severe share 0.0813
+  Source2 3,305,373 rows, severe share 0.3392
+  Source3    97,389 rows, severe share 0.3173
+  rows per year:   Source1    Source2  Source3
+    2016           129,560    279,666    1,595
+    2017           170,702    539,528    7,863
+    2018           167,761    714,373   11,292
+    2019           262,369    672,608   19,326
+    2020           708,669    448,305   21,939
+    2021         1,113,668    431,482   18,603
+    2022         1,526,270    219,411   16,771
+    2023           246,633          0        0
+
+Night / day (is_night)
+  missing  23,246 rows, severe share 0.127
+  day    5,334,553 rows, severe share 0.197
+  night  2,370,595 rows, severe share 0.189
+
+Weather_condition: 145 distinct values. Top 10 by rows (severe share):
+  Fair 2,560,802 (0.117) | Mostly Cloudy 1,016,195 (0.209) | Cloudy 817,082 (0.142) | Clear 808,743 (0.336)
+  Partly Cloudy 698,972 (0.205) | Overcast 382,866 (0.350) | Light Rain 352,957 (0.228)
+  Scattered Clouds 204,829 (0.352) | Unknown 173,459 (0.217) | Light Snow 128,680 (0.209)
+
+Numeric columns (min | median | max | missing). p1/p99 are not reported: with 1% rank error they equal min/max.
+  Temperature_F     -89.0 | 64.0  | 207.0   | 163,853
+  Humidity_pct        1.0 | 67.0  | 100.0   | 174,144
+  Pressure_in         0.0 | 29.86 | 58.63   | 140,679
+  Visibility_mi       0.0 | 10.0  | 140.0   | 177,098
+  Wind_Speed_mph      0.0 | 7.0   | 1087.0  | 571,233
+  Precipitation_in    0.0 | 0.0   | 36.47   | 2,203,586
+  Distance_mi         0.0 | 0.029 | 441.75  | 0
+Rows outside physical ranges (flagged, not deleted):
+  Temperature_F < -40 or > 130: 69
+  Visibility_mi > 30: 5,937
+  Wind_Speed_mph > 100: 139
+  Precipitation_in > 5: 507
+  Pressure_in < 25 or > 32: 97,297
+
+Correlation with label (Pearson with 0/1 label, pairwise non-missing rows)
+  county_prior_severe_rate +0.3896
+  crossing                 -0.1120
+  traffic_signal           -0.1048
+  county_prior_accidents   -0.1008
+  stop                     -0.0565
+  junction                 +0.0523
+  Wind_Speed_mph           +0.0477
+  Precipitation_in         +0.0267
+  start_hour               +0.0117
+  is_night                 -0.0094
+  Visibility_mi            -0.0004
+  Temperature_F            -0.0002
+  Distance_mi (excluded, leakage) +0.0021
+Rows with no earlier accident in their county: 3,925 (0.05%)
