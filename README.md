@@ -128,8 +128,8 @@ The large data stays in Azure; the instructor can be given read access to the st
 # AI use
 
 | Tool | Request | Response | My changes and checks |
-| --- | --- | --- | --- |
-| Claude (Anthropic) | Explain the Phase-1 brief and plan each task from Labs 3–7 | Task plan and checklist | I approved each step and kept the lab order |
-| Claude | Adapt lab code to US-Accidents (ingest script, ADF data flow, clean notebook, Lab-6 job notebooks, EDA) | Scripts and notebooks | I ran ingestion on my VM and built the ADF pipeline; the ADF column-name error was fixed with a rename step |
-| Claude, using my signed-in Chrome | Import notebooks, create the job, run the three job runs and EDA, stop the compute | Run IDs and outputs | I signed in myself; all outputs are saved in `databricks/evidence/` and the exports |
-| Claude | Draft README, `FEATURES.md`, `DATA_CONTRACT.md` | Draft text | I asked for a shorter README; numbers come from the evidence files |
+|---|---|---|---|
+| Claude, using my signed-in Chrome | Import the notebooks, create the Databricks job, run the three job runs and the EDA notebook, and stop the compute resources. | Helped me complete these tasks. I signed in myself and approved the required actions. | The run IDs and outputs were saved in `databricks/evidence/` together with the exported files. |
+| Claude | Tidy and improve the README page. | Helped me organize the content and present it in a clean, clear, and professional style. | Updated and reviewed the README documentation. |
+| Claude | Generate a workflow diagram for the project. | Helped me create a diagram showing the data flow through ingestion, Azure Data Factory, Databricks processing, job execution, and analysis. | Reviewed and included the generated workflow diagram in the project documentation. |
+
