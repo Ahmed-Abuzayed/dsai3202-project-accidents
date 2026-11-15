@@ -129,7 +129,7 @@ The large data stays in Azure; the instructor can be given read access to the st
 
 | Tool | Request | Response | My changes and checks |
 |---|---|---|---|
-| Claude, using my signed-in Chrome | Import the notebooks, create the Databricks job, run the three job runs and the EDA notebook, and stop the compute resources. | Helped me complete these tasks. I signed in myself and approved the required actions. | The run IDs and outputs were saved in `databricks/evidence/` together with the exported files. |
+| Claude (Anthropic) | Explain the Phase 1 brief and help me plan each task from Labs 3–7. | Created a structured task plan and checklist while keeping the required lab order. | I reviewed and approved each step. |
 | Claude | Tidy and improve the README page. | Helped me organize the content and present it in a clean, clear, and professional style. | Updated and reviewed the README documentation. |
 | Claude | Generate a workflow diagram for the project. | Helped me create a diagram showing the data flow through ingestion, Azure Data Factory, Databricks processing, job execution, and analysis. | Reviewed and included the generated workflow diagram in the project documentation. |
 
