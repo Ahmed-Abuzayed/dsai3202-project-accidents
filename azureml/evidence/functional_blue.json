@@ -1,0 +1,160 @@
+{
+  "deployment": "blue",
+  "model": "accident-severity:1",
+  "passed": true,
+  "checks": [
+    {
+      "input_file": "sample-request.json",
+      "input": "{\n  \"data\": [\n    {\n      \"start_hour\": 8,\n      \"day_of_week\": 3,\n      \"month\": 5,\n      \"is_night\": 0,\n      \"Temperature_F\": 70.0,\n      \"Visibility_mi\": 10.0,\n      \"Wind_Speed_mph\": 7.0,\n      \"Precipitation_in\": 0.0,\n      \"junction\": 0,\n      \"crossing\": 0,\n      \"traffic_signal\": 1,\n      \"stop\": 0,\n      \"county_prior_accidents\": 1500,\n      \"county_prior_severe_rate\": 0.3\n    }\n  ]\n}\n",
+      "status": 200,
+      "served_by": "blue",
+      "output": {
+        "predictions": [
+          0
+        ],
+        "probabilities": [
+          0.1438
+        ],
+        "model": "accident-severity:1",
+        "n": 1
+      },
+      "passed": true
+    },
+    {
+      "input_file": "sample-request-2-rows.json",
+      "input": "{\n  \"data\": [\n    {\n      \"id\": \"example-1\",\n      \"start_hour\": 8,\n      \"day_of_week\": 3,\n      \"month\": 5,\n      \"is_night\": 0,\n      \"Temperature_F\": 70.0,\n      \"Visibility_mi\": 10.0,\n      \"Wind_Speed_mph\": 7.0,\n      \"Precipitation_in\": 0.0,\n      \"junction\": 0,\n      \"crossing\": 0,\n      \"traffic_signal\": 1,\n      \"stop\": 0,\n      \"county_prior_accidents\": 1500,\n      \"county_prior_severe_...",
+      "status": 200,
+      "served_by": "blue",
+      "output": {
+        "predictions": [
+          0,
+          1
+        ],
+        "probabilities": [
+          0.1438,
+          0.5316
+        ],
+        "model": "accident-severity:1",
+        "n": 2,
+        "ids": [
+          "example-1",
+          "example-2"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "input_file": "empty.json",
+      "input": "",
+      "status": 200,
+      "served_by": "blue",
+      "output": {
+        "error": "empty body: send {\"data\": [{...}, ...]}",
+        "expected_columns": [
+          "start_hour",
+          "day_of_week",
+          "month",
+          "is_night",
+          "Temperature_F",
+          "Visibility_mi",
+          "Wind_Speed_mph",
+          "Precipitation_in",
+          "junction",
+          "crossing",
+          "traffic_signal",
+          "stop",
+          "county_prior_accidents",
+          "county_prior_severe_rate"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "input_file": "missing-field.json",
+      "input": "{\n  \"data\": [\n    {\n      \"start_hour\": 8,\n      \"day_of_week\": 3,\n      \"month\": 5,\n      \"is_night\": 0,\n      \"Temperature_F\": 70.0,\n      \"Visibility_mi\": 10.0,\n      \"Wind_Speed_mph\": 7.0,\n      \"Precipitation_in\": 0.0,\n      \"junction\": 0,\n      \"crossing\": 0,\n      \"traffic_signal\": 1,\n      \"stop\": 0,\n      \"county_prior_accidents\": 1500\n    }\n  ]\n}\n",
+      "status": 200,
+      "served_by": "blue",
+      "output": {
+        "error": "missing field(s): county_prior_severe_rate",
+        "expected_columns": [
+          "start_hour",
+          "day_of_week",
+          "month",
+          "is_night",
+          "Temperature_F",
+          "Visibility_mi",
+          "Wind_Speed_mph",
+          "Precipitation_in",
+          "junction",
+          "crossing",
+          "traffic_signal",
+          "stop",
+          "county_prior_accidents",
+          "county_prior_severe_rate"
+        ],
+        "missing": [
+          "county_prior_severe_rate"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "input_file": "too-long.json",
+      "input": "{\"data\":[{\"start_hour\":0,\"day_of_week\":3,\"month\":5,\"is_night\":0,\"Temperature_F\":70.0,\"Visibility_mi\":10.0,\"Wind_Speed_mph\":7.0,\"Precipitation_in\":0.0,\"junction\":0,\"crossing\":0,\"traffic_signal\":1,\"stop\":0,\"county_prior_accidents\":1500,\"county_prior_severe_rate\":0.3},{\"start_hour\":1,\"day_of_week\":7,\"month\":12,\"is_night\":1,\"Temperature_F\":28.0,\"Visibility_mi\":1.5,\"Wind_Speed_mph\":15.0,\"Precipitation_...",
+      "status": 200,
+      "served_by": "blue",
+      "output": {
+        "error": "too many rows: 1200 (max 1000 per request); split the request",
+        "expected_columns": [
+          "start_hour",
+          "day_of_week",
+          "month",
+          "is_night",
+          "Temperature_F",
+          "Visibility_mi",
+          "Wind_Speed_mph",
+          "Precipitation_in",
+          "junction",
+          "crossing",
+          "traffic_signal",
+          "stop",
+          "county_prior_accidents",
+          "county_prior_severe_rate"
+        ],
+        "rows_received": 1200,
+        "max_rows": 1000
+      },
+      "passed": true
+    },
+    {
+      "input_file": "wrong-type.json",
+      "input": "{\n  \"data\": [\n    {\n      \"start_hour\": \"morning\",\n      \"day_of_week\": 3,\n      \"month\": 5,\n      \"is_night\": 0,\n      \"Temperature_F\": 70.0,\n      \"Visibility_mi\": 10.0,\n      \"Wind_Speed_mph\": 7.0,\n      \"Precipitation_in\": \"rain\",\n      \"junction\": 0,\n      \"crossing\": 0,\n      \"traffic_signal\": 1,\n      \"stop\": 0,\n      \"county_prior_accidents\": 1500,\n      \"county_prior_severe_rate\": 0.3\n   ...",
+      "status": 200,
+      "served_by": "blue",
+      "output": {
+        "error": "wrong type, expected a number: start_hour got 'morning'; Precipitation_in got 'rain'",
+        "expected_columns": [
+          "start_hour",
+          "day_of_week",
+          "month",
+          "is_night",
+          "Temperature_F",
+          "Visibility_mi",
+          "Wind_Speed_mph",
+          "Precipitation_in",
+          "junction",
+          "crossing",
+          "traffic_signal",
+          "stop",
+          "county_prior_accidents",
+          "county_prior_severe_rate"
+        ],
+        "wrong_type": {
+          "start_hour": "'morning'",
+          "Precipitation_in": "'rain'"
+        }
+      },
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "model": "accident-severity:1",
+  "requests": 100,
+  "successful": 100,
+  "failures": 0,
+  "client_p50_ms": 29.26,
+  "client_p95_ms": 34.07,
+  "client_target_ms": 1000.0,
+  "client_target_met": true
+}

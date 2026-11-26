@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "model": "accident-severity:1",
+  "deployment": "blue",
+  "deploy_from_ts": 1672531200,
+  "unseen_from": "2023-01-02",
+  "unseen_rows": 241785,
+  "n": 2000,
+  "failed_batches": 0,
+  "severe_share": 0.0305,
+  "balanced_accuracy": 0.6313,
+  "recall_severe": 0.5246,
+  "precision_severe": 0.0593,
+  "tag_val_balanced_accuracy": 0.6881
+}

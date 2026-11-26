@@ -1,0 +1,29 @@
+{
+  "model": "accident-severity:1",
+  "deployment": "blue",
+  "served_by": "blue",
+  "endpoint_model": "accident-severity:1",
+  "n": 200,
+  "matched": 200,
+  "max_abs_diff": 4.974e-05,
+  "tolerance": 5e-05,
+  "labels_agree": 200,
+  "rows_with_null": 8,
+  "passed": true,
+  "columns": [
+    "start_hour",
+    "day_of_week",
+    "month",
+    "is_night",
+    "Temperature_F",
+    "Visibility_mi",
+    "Wind_Speed_mph",
+    "Precipitation_in",
+    "junction",
+    "crossing",
+    "traffic_signal",
+    "stop",
+    "county_prior_accidents",
+    "county_prior_severe_rate"
+  ]
+}
