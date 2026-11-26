@@ -1,0 +1,7 @@
+# Training environment: a base image plus a conda file (Lab-8, renamed).
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: accidents-env
+version: 1
+description: Python 3.11, scikit-learn 1.5.2, pandas 2.2.3, MLflow 2.17.2 - for the accident severity model
+image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
+conda_file: conda.yml
