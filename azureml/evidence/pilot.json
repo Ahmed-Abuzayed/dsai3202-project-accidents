@@ -1,0 +1,13 @@
+{
+  "run_id": "cool_reggae_zrggw71898",
+  "status": "FINISHED",
+  "model": "mine",
+  "estimator": "HistGradientBoostingClassifier",
+  "extra_metrics": [
+    "val_flagged_share"
+  ],
+  "fit_seconds": 1.8698635470000227,
+  "too_slow": false,
+  "latency_p95_ms": 2.3615910003172758,
+  "val_balanced_accuracy": 0.5548728834375308
+}
