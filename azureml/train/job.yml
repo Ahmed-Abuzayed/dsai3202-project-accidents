@@ -1,0 +1,41 @@
+# One run of train.py: the pilot (model=mine) before the sweep.
+# Adapted from Lab-9 job.yml: our data asset, our features, severe_weight instead of unhappy_weight.
+# No compute: line, so it runs on serverless compute (Lab-8).
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+type: command
+display_name: train-accidents
+experiment_name: accidents-phase2
+description: Phase 2 - one run of train.py on the retained Phase-1 features
+
+code: .
+command: >-
+  python train.py
+  --data ${{inputs.data}}
+  --features ${{inputs.features}}
+  --feature_set ${{inputs.feature_set}}
+  --seed ${{inputs.seed}}
+  --model ${{inputs.model}}
+  --C ${{inputs.C}}
+  --severe_weight ${{inputs.severe_weight}}
+  --n_estimators ${{inputs.n_estimators}}
+  --threshold ${{inputs.threshold}}
+  --sample_rows ${{inputs.sample_rows}}
+
+inputs:
+  data:
+    type: uri_folder
+    path: azureml:accidents-features:1
+  features: start_hour,day_of_week,month,is_night,Temperature_F,Visibility_mi,Wind_Speed_mph,Precipitation_in,junction,crossing,traffic_signal,stop,county_prior_accidents,county_prior_severe_rate
+  feature_set: accidents_features_v1
+  seed: 42
+  model: logreg
+  C: 1.0
+  severe_weight: 1
+  n_estimators: 3500     # used only when model is rf
+  threshold: 0.5
+  sample_rows: 150000    # the same seeded sample every sweep trial uses; 0 = all rows
+
+environment: azureml:accidents-env:1
+
+identity:
+  type: user_identity
