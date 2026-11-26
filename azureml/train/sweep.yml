@@ -1,0 +1,60 @@
+# The sweep: every combination of model x severe_weight x threshold = 3 x 2 x 2 = 12 trials,
+# judged on validation balanced accuracy. Adapted from Lab-9 sweep.yml (mine already added).
+$schema: https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json
+type: sweep
+display_name: sweep-accidents
+experiment_name: accidents-phase2
+description: logreg, forest or gradient boosting x severe weight 1 or 4 x threshold 0.5 or 0.2 - judged on val_balanced_accuracy
+
+trial:
+  code: .
+  command: >-
+    python train.py
+    --data ${{inputs.data}}
+    --features ${{inputs.features}}
+    --feature_set ${{inputs.feature_set}}
+    --seed ${{inputs.seed}}
+    --sample_rows ${{inputs.sample_rows}}
+    --C ${{inputs.C}}
+    --n_estimators ${{inputs.n_estimators}}
+    --model ${{search_space.model}}
+    --severe_weight ${{search_space.severe_weight}}
+    --threshold ${{search_space.threshold}}
+  environment: azureml:accidents-env:1
+
+inputs:
+  data:
+    type: uri_folder
+    path: azureml:accidents-features:1
+  features: start_hour,day_of_week,month,is_night,Temperature_F,Visibility_mi,Wind_Speed_mph,Precipitation_in,junction,crossing,traffic_signal,stop,county_prior_accidents,county_prior_severe_rate
+  feature_set: accidents_features_v1
+  seed: 42               # every trial sees the same split. Only the three settings change.
+  sample_rows: 150000
+  C: 1.0
+  n_estimators: 3500
+
+search_space:
+  model:
+    type: choice
+    values: [logreg, rf, mine]
+  severe_weight:         # how much a mistake on a severe accident counts in training
+    type: choice
+    values: [1, 4]
+  threshold:             # say "severe" only when P(severe) >= threshold. 0.2 is the Lab's 0.8 seen from the other class.
+    type: choice
+    values: [0.5, 0.2]
+
+sampling_algorithm: grid
+
+objective:
+  goal: maximize
+  primary_metric: val_balanced_accuracy
+
+limits:
+  max_total_trials: 12
+  max_concurrent_trials: 2
+  timeout: 7200
+  trial_timeout: 1800
+
+identity:
+  type: user_identity
