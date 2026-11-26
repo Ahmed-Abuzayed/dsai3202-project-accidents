@@ -1,0 +1,8 @@
+{
+  "phase1_run_id": "1100058089459956",
+  "phase1_features_path": "abfss://curated@amazonlake60312217.dfs.core.windows.net/accidents_runs/1100058089459956/features",
+  "rows": 7728394,
+  "files": 4,
+  "snapshot_sha256": "6292f6f7bf2bc8284f6c06408b0d6d18acff5e1533cae8ce13eb6b10bb16dd17",
+  "path": "abfss://curated@amazonlake60312217.dfs.core.windows.net/p2_snapshots/6292f6f7bf2bc8284f6c06408b0d6d18acff5e1533cae8ce13eb6b10bb16dd17/features/"
+}

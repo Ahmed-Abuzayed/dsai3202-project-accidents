@@ -1,8 +1,10 @@
-# A data asset: a NAME and a VERSION for a folder in the lake (Lab-8).
-# retain_data.py replaces this file with the retained, content-addressed path.
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: accidents-features
 version: 1
 type: uri_folder
-description: Retained copy of the Phase-1 feature snapshot
-path: __SNAPSHOT__  # retain_data.py fills an immutable content-addressed path
+description: Retained Phase-1 features from Databricks run 1100058089459956
+path: abfss://curated@amazonlake60312217.dfs.core.windows.net/p2_snapshots/6292f6f7bf2bc8284f6c06408b0d6d18acff5e1533cae8ce13eb6b10bb16dd17/features/
+tags:
+  snapshot_sha256: 6292f6f7bf2bc8284f6c06408b0d6d18acff5e1533cae8ce13eb6b10bb16dd17
+  phase1_run_id: "1100058089459956"
+  rows: "7728394"
