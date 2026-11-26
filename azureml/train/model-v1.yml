@@ -1,0 +1,38 @@
+$schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
+name: accident-severity
+version: 1
+type: mlflow_model
+path: azureml://jobs/upbeat_floor_tf3kt7bzl0_0/outputs/artifacts/paths/model/
+description: "Severe accident (Severity 3-4) on accidents_features_v1, C=1.0, severe_weight=1.0, threshold 0.2. From run upbeat_floor_tf3kt7bzl0_0, a trial of sweep upbeat_floor_tf3kt7bzl0."
+tags:
+  git_commit: "9bcd1d3"
+  training_run: "upbeat_floor_tf3kt7bzl0_0"
+  sweep_run: "upbeat_floor_tf3kt7bzl0"
+  data_asset: "accidents-features:1"
+  data_sha256: "6292f6f7bf2bc8284f6c06408b0d6d18acff5e1533cae8ce13eb6b10bb16dd17"
+  feature_set: "accidents_features_v1"
+  features: "start_hour,day_of_week,month,is_night,Temperature_F,Visibility_mi,Wind_Speed_mph,Precipitation_in,junction,crossing,traffic_signal,stop,county_prior_accidents,county_prior_severe_rate"
+  excluded_features: "weather_condition"
+  split_id: "0a86b55ccd25adb3455b5da364cfc93e07077d1fe7509942518db857dde24f7a"
+  split_method: "fixed-date-time-split-v1"
+  test_membership_sha256: "e6a07352420f05eac460f616dd98f47414d2d558ad6bf58ff740e221cf4f324b"
+  val_from_ts: "1624838400"
+  test_from_ts: "1640995320"
+  deploy_from_ts: "1672531200"
+  train_severe_rate: "0.263941"
+  model: "logreg"
+  estimator: "LogisticRegression"
+  hyperparameters: "C=1.0, severe_weight=1.0"
+  severe_weight: "1.0"
+  threshold: "0.2"
+  seed: "42"
+  sample_rows: "150000"
+  sample_method: "fixed_sample: first N training IDs by sha256(seed:ID)"
+  val_accuracy: "0.6998"
+  val_balanced_accuracy: "0.6881"
+  val_severe_found: "0.6731"
+  val_precision_severe: "0.2153"
+  baseline_accuracy: "0.892"
+  latency_p95_ms: "1.03"
+  limitations: "Trained on a fixed 150,000-row sample of accidents from 2016 up to val_from_ts; the severe share falls from 24.1% (before 2022) to 6.4% (2022) (Phase-1 EDA); providers report severity differently (Phase-1 EDA); the endpoint takes the 14 computed features, not raw records."
+  stage: "candidate"

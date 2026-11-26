@@ -1,0 +1,1 @@
+accident-severity:1 tags=31 via=registry object=FixedThresholdClassifier

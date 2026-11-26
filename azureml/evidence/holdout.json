@@ -1,0 +1,250 @@
+{
+  "run_id": "upbeat_floor_tf3kt7bzl0_0",
+  "n": 20000,
+  "test_rows_2022": 1762452,
+  "data_asset": "accidents-features:1",
+  "data_sha256": "6292f6f7bf2bc8284f6c06408b0d6d18acff5e1533cae8ce13eb6b10bb16dd17",
+  "split_id": "0a86b55ccd25adb3455b5da364cfc93e07077d1fe7509942518db857dde24f7a",
+  "test_membership_sha256": "e6a07352420f05eac460f616dd98f47414d2d558ad6bf58ff740e221cf4f324b",
+  "test_view_sha256": "2e732eb9dd491789d3e0359d641e7b332f0d09397d923806b5847663b6225c3b",
+  "threshold": "0.2",
+  "train_severe_rate": 0.263941,
+  "results": {
+    "model": {
+      "accuracy": 0.69875,
+      "balanced_accuracy": 0.6490639378271779,
+      "recall_severe": 0.5914368650217707,
+      "precision_severe": 0.12983909510912856,
+      "f1_severe": 0.21293272370999347,
+      "recall_not_severe": 0.7066910106325851,
+      "tp": 815,
+      "fp": 5462,
+      "fn": 563,
+      "tn": 13160
+    },
+    "B1": {
+      "accuracy": 0.9311,
+      "balanced_accuracy": 0.5,
+      "recall_severe": 0.0,
+      "precision_severe": 0.0,
+      "f1_severe": 0.0,
+      "recall_not_severe": 1.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1378,
+      "tn": 18622
+    },
+    "B2": {
+      "accuracy": 0.7034,
+      "balanced_accuracy": 0.6485370316707972,
+      "recall_severe": 0.5849056603773585,
+      "precision_severe": 0.13071683425235162,
+      "f1_severe": 0.21367974549310711,
+      "recall_not_severe": 0.7121684029642359,
+      "tp": 806,
+      "fp": 5360,
+      "fn": 572,
+      "tn": 13262
+    }
+  },
+  "slice_by_source": {
+    "Source1": {
+      "n": 17331,
+      "severe_share": 0.028157636604927587,
+      "model": {
+        "accuracy": 0.695285903871675,
+        "balanced_accuracy": 0.6193751867536545,
+        "recall_severe": 0.5389344262295082,
+        "precision_severe": 0.04944538447076518,
+        "f1_severe": 0.09058033407955915,
+        "recall_not_severe": 0.6998159472778008,
+        "tp": 263,
+        "fp": 5056,
+        "fn": 225,
+        "tn": 11787
+      },
+      "B2": {
+        "accuracy": 0.7050372165483815,
+        "balanced_accuracy": 0.6283717246937239,
+        "recall_severe": 0.5471311475409836,
+        "precision_severe": 0.05176424970918961,
+        "f1_severe": 0.09458023379383634,
+        "recall_not_severe": 0.7096123018464644,
+        "tp": 267,
+        "fp": 4891,
+        "fn": 221,
+        "tn": 11952
+      }
+    },
+    "Source2": {
+      "n": 2457,
+      "severe_share": 0.34025234025234025,
+      "model": {
+        "accuracy": 0.7146927146927147,
+        "balanced_accuracy": 0.6922509290443315,
+        "recall_severe": 0.6220095693779905,
+        "precision_severe": 0.574585635359116,
+        "f1_severe": 0.5973578403216542,
+        "recall_not_severe": 0.7624922887106724,
+        "tp": 520,
+        "fp": 385,
+        "fn": 316,
+        "tn": 1236
+      },
+      "B2": {
+        "accuracy": 0.6837606837606838,
+        "balanced_accuracy": 0.6641744566677195,
+        "recall_severe": 0.6028708133971292,
+        "precision_severe": 0.5310853530031612,
+        "f1_severe": 0.5647058823529412,
+        "recall_not_severe": 0.7254780999383097,
+        "tp": 504,
+        "fp": 445,
+        "fn": 332,
+        "tn": 1176
+      }
+    },
+    "Source3": {
+      "n": 212,
+      "severe_share": 0.25471698113207547,
+      "model": {
+        "accuracy": 0.7971698113207547,
+        "balanced_accuracy": 0.7298406000937646,
+        "recall_severe": 0.5925925925925926,
+        "precision_severe": 0.6037735849056604,
+        "f1_severe": 0.5981308411214953,
+        "recall_not_severe": 0.8670886075949367,
+        "tp": 32,
+        "fp": 21,
+        "fn": 22,
+        "tn": 137
+      },
+      "B2": {
+        "accuracy": 0.7971698113207547,
+        "balanced_accuracy": 0.7481247069854664,
+        "recall_severe": 0.6481481481481481,
+        "precision_severe": 0.5932203389830508,
+        "f1_severe": 0.6194690265486725,
+        "recall_not_severe": 0.8481012658227848,
+        "tp": 35,
+        "fp": 24,
+        "fn": 19,
+        "tn": 134
+      }
+    }
+  },
+  "missed_severe_examples": [
+    {
+      "ID": "A-3705577",
+      "label": 1,
+      "start_hour": 6,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 35678,
+      "county_prior_severe_rate": 0.20059980940635685,
+      "crossing": 1,
+      "traffic_signal": 1,
+      "p_severe": 0.0431
+    },
+    {
+      "ID": "A-3711207",
+      "label": 1,
+      "start_hour": 0,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 5786,
+      "county_prior_severe_rate": 0.005357760110611821,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.0663
+    },
+    {
+      "ID": "A-3728516",
+      "label": 1,
+      "start_hour": 15,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 3158,
+      "county_prior_severe_rate": 0.1279290690310323,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.1702
+    },
+    {
+      "ID": "A-3740370",
+      "label": 1,
+      "start_hour": 8,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 146,
+      "county_prior_severe_rate": 0.3287671232876712,
+      "crossing": 1,
+      "traffic_signal": 1,
+      "p_severe": 0.0671
+    },
+    {
+      "ID": "A-3740865",
+      "label": 1,
+      "start_hour": 10,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 35547,
+      "county_prior_severe_rate": 0.035896137508087886,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.0674
+    }
+  ],
+  "false_alarm_examples": [
+    {
+      "ID": "A-3705387",
+      "label": 0,
+      "start_hour": 13,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 20885,
+      "county_prior_severe_rate": 0.32573617428776636,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.2974
+    },
+    {
+      "ID": "A-3706873",
+      "label": 0,
+      "start_hour": 22,
+      "Visibility_mi": 8.0,
+      "county_prior_accidents": 743,
+      "county_prior_severe_rate": 0.22072678331090176,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.2335
+    },
+    {
+      "ID": "A-3707505",
+      "label": 0,
+      "start_hour": 19,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 126057,
+      "county_prior_severe_rate": 0.3317626153248134,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.208
+    },
+    {
+      "ID": "A-3707720",
+      "label": 0,
+      "start_hour": 18,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 2137,
+      "county_prior_severe_rate": 0.28451099672437996,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.2605
+    },
+    {
+      "ID": "A-3707742",
+      "label": 0,
+      "start_hour": 22,
+      "Visibility_mi": 10.0,
+      "county_prior_accidents": 36399,
+      "county_prior_severe_rate": 0.4300392867935932,
+      "crossing": 0,
+      "traffic_signal": 0,
+      "p_severe": 0.4266
+    }
+  ]
+}
