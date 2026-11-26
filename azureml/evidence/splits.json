@@ -1,0 +1,25 @@
+{
+  "method": "fixed-date-time-split-v1",
+  "seed": 42,
+  "label_availability": "county history uses only strictly earlier accidents (Phase-1 FEATURES.md)",
+  "membership_sha256": {
+    "train": "c343081ec97a6d038d171d03eaeccdb7bf3714286e409efd8eaeb490f2d0aa57",
+    "val": "209adfe02680e8c2db798ceb26cae0e50322c016c93c7d29886c16de9df117d5",
+    "test": "e6a07352420f05eac460f616dd98f47414d2d558ad6bf58ff740e221cf4f324b",
+    "deploy": "12925e816c0ff591638191c0fd75af62b0eecdf0168ea8129ae3c4dd78b85c83"
+  },
+  "train": 4863142,
+  "val": 856167,
+  "test": 1762452,
+  "deploy": 246633,
+  "boundaries": {
+    "val_from_ts": 1624838400,
+    "test_from_ts": 1640995320,
+    "deploy_from_ts": 1672531200
+  },
+  "deploy_from_ts": 1672531200,
+  "split_id": "0a86b55ccd25adb3455b5da364cfc93e07077d1fe7509942518db857dde24f7a",
+  "data_sha256": "6292f6f7bf2bc8284f6c06408b0d6d18acff5e1533cae8ce13eb6b10bb16dd17",
+  "train_used": 150000,
+  "val_used": 22500
+}
