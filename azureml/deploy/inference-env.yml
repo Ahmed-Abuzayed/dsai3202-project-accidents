@@ -1,0 +1,7 @@
+# A serving image (Lab-10): same base image as training, different conda file.
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: accidents-inference-env
+version: 1
+image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
+conda_file: inference-conda.yml
+description: accident-severity serving image - what score.py imports plus azureml-inference-server-http

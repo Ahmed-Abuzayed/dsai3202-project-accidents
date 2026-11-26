@@ -1,0 +1,15 @@
+# The deployment behind the endpoint (Lab-10 blue.yml). One exact model version (never "latest"),
+# the scoring script, the serving environment, one VM size and one instance.
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: blue
+endpoint_name: ep-accidents-change-me  # overridden by --endpoint-name $EP on the command line
+model: azureml:accident-severity:1     # the chosen sweep trial, registered as version 1
+code_configuration:
+  code: ../serve                       # everything score.py imports must be in here
+  scoring_script: score.py
+environment: azureml:accidents-inference-env:1
+instance_type: Standard_DS2_v2         # the Lab-10 size: $0.137 an hour in Qatar Central
+instance_count: 1
+request_settings:
+  request_timeout_ms: 10000
+  max_concurrent_requests_per_instance: 2

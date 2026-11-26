@@ -1,0 +1,8 @@
+# The front door (Lab-10 endpoint.yml). A name, a URL and an auth mode.
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+name: ep-accidents-change-me          # overridden by --name $EP on the command line
+auth_mode: key                        # anyone holding the key can call it
+description: DSAI3202 project - accident severity endpoint. Delete it when not presenting.
+tags:
+  course: DSAI3202
+  project: us-accidents
