@@ -348,7 +348,6 @@ az ml online-deployment create -f deploy/blue.yml --endpoint-name $EP --all-traf
 
 | Tool | Request | Response | My changes and checks |
 | --- | --- | --- | --- |
-
 | Claude (Anthropic) | Explain the Phase 1 brief and help me plan each task from Labs 3–7. | Created a structured task plan and checklist while keeping the required lab order. | I reviewed and approved each step. |
 | Claude | Tidy and improve the README page. | Helped me organize the content and present it in a clean, clear, and professional style. | Updated and reviewed the README documentation. |
 | Claude | Generate a workflow diagram for the project. | Helped me create a diagram showing the data flow through ingestion, Azure Data Factory, Databricks processing, job execution, and analysis. | Reviewed and included the generated workflow diagram in the project documentation. |
