@@ -348,10 +348,13 @@ az ml online-deployment create -f deploy/blue.yml --endpoint-name $EP --all-traf
 
 | Tool | Request | Response | My changes and checks |
 | --- | --- | --- | --- |
-| Claude (Anthropic) | Explain the Phase-1 brief and plan each task from Labs 3–7 | Task plan and checklist | I approved each step and kept the lab order |
-| Claude | Adapt lab code to US-Accidents (ingest script, ADF data flow, clean notebook, Lab-6 job notebooks, EDA) | Scripts and notebooks | I ran ingestion on my VM and built the ADF pipeline; the ADF column-name error was fixed with a rename step |
-| Claude, using my signed-in Chrome | Import notebooks, create the job, run the three job runs and EDA, stop the compute | Run IDs and outputs | I checked the results in `05_inspect` and the job run pages |
-| Claude | Draft README, `FEATURES.md`, `DATA_CONTRACT.md` | Draft text | I checked the numbers against the evidence files |
+
+| Claude (Anthropic) | Explain the Phase 1 brief and help me plan each task from Labs 3–7. | Created a structured task plan and checklist while keeping the required lab order. | I reviewed and approved each step. |
+| Claude | Tidy and improve the README page. | Helped me organize the content and present it in a clean, clear, and professional style. | Updated and reviewed the README documentation. |
+| Claude | Generate a workflow diagram for the project. | Helped me create a diagram showing the data flow through ingestion, Azure Data Factory, Databricks processing, job execution, and analysis. | Reviewed and included the generated workflow diagram in the project documentation. |
+| Claude | Review the code that I provided, check that the code was correct| Reviewed the provided code, suggested corrections, and helped resolve errors in the listed files: `ingest.sh`, the ADF data flow JSON, `01_clean`, `00_common`, `02_prepare`, `03_validate`, `04_publish`, `05_inspect`, `06_eda`, and the job definition. | I ran the ingestion script on my VM and built the ADF pipeline in the portal. When the ADF Parquet column-name error occurred, I reported it back, and it was fixed by adding a rename step. |
 | Claude | Phase 2: plan the work from the brief, Lecture 8 and Labs 8–10 | A plan mapping each brief requirement to a lab step | I approved the plan and the choices (drop `weather_condition`, rank on balanced accuracy, one endpoint only) |
-| Claude | Phase 2: adapt the Lab-8/9/10 code to my features, split and baselines | The files in `azureml/` (train, deploy, serve, checks, scripts) | I ran every step myself on my VM and in my workspace, step by step, and committed each part after it ran; I reported errors and they were fixed |
-| Claude | Phase 2: explain my outputs and draft the three README sections from my evidence files | Draft text with my numbers | I checked every number against `azureml/evidence/` and the run pages in ml.azure.com |
+| Claude | Phase 2: Help me understand how to adapt the Lab-8/9/10 examples to my dataset, features, split and baselines | The files in `azureml/` (train, deploy, serve, checks, scripts) | I worked on the implementation, ran the steps myself on my VM and in Azure ML, checked the outputs and reported errors when they occurred |
+| Claude | Phase 2: Help me improve the README wording and formatting| Suggested wording and presentation improvements to make the documentation clearer and more professional | Reviewed and approved the final content |
+
+
